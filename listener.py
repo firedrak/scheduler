@@ -32,8 +32,10 @@ subprocess.check_output(["rm", "-rf", "shell"])
 subprocess.call(["git", "clone", "https://github.com/firedrak/shell.git"])
 
 while True: 
+    
     if redisCli().should_i_start() == 'yes':
         spider_url = redisCli().get_spider()
         subprocess.call(["bash", "shell/shell.sh", f"{redis_host} {spider_url}"])
         break
+        
 print('Finished')
