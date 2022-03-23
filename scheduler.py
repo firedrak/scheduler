@@ -19,12 +19,15 @@ else:
     # spider_url = 'https://gist.githubusercontent.com/firedrak/9bd24ba6a1f42d864c8a98b94cde4f36/raw/d4297a1025a270f3d61aadebd5dccfff29fac56b'
 
     def start_crawling(server):
+        
         client = paramiko.client.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        
         host = server['host']
         port = server['port']
         user = server['username']
         client.connect(host, port, username=user)
+        
         print(f'{host} => started')
         _stdin, _stdout,_stderr = client.exec_command("rm -rf shell")
         _stdout.read().decode()
@@ -35,6 +38,7 @@ else:
         print(f'{host} => crawling started')
         (_stdout.read().decode())
         print(f'{host} => crawling completed')
+        
         client.close()
 
     server_list = [{'host':"172.16.221.235", 'username':"ubuntu", 'port':5190}, {'host':"172.16.221.233", 'username':"ubuntu",  'port':5190}]
