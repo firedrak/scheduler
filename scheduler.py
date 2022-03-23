@@ -8,7 +8,7 @@ import sys
 # python3 scheduler.py 172.16.221.234 https://gist.githubusercontent.com/firedrak/9bd24ba6a1f42d864c8a98b94cde4f36/raw/d4297a1025a270f3d61aadebd5dccfff29fac56b
 
 args = sys.argv[1:]
-if len(args) < 2:
+if len(args) != 2:
     print('Provide redis host and spider url')
 
 else:
