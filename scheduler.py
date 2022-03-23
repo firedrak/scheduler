@@ -53,4 +53,3 @@ else:
         for i in len(threads):
             if not threads[i].is_alive():
                 print(f'server {i +1} inactive')
-    # ssh ubuntu@172.16.221.235  -p5190 'rm -rf shell | git clone https://github.com/firedrak/shell.git | bash shell/shell.sh'
